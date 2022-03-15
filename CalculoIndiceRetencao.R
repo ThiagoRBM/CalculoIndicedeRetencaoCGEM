@@ -4,7 +4,7 @@ library(tidyr)
 library(janitor)
 
 
-#### Calculo do indice de Kovats (Ìndice de retenÁ„o), segundo Clement 1990:
+#### Calculo do indice de Kovats (√≠ndice de reten√ß√£o), segundo Clement 1990:
 #### 
 #### 
 #### 
@@ -13,7 +13,7 @@ library(janitor)
 #### 
 #### 
 
-CarbonoNumero= seq(from= 8, to= 20, by= 1) ## aqui, colocar o numero de carbonos do menor alcano da sÈrie
+CarbonoNumero= seq(from= 8, to= 20, by= 1) ## aqui, colocar o numero de carbonos do menor alcano da s√©rie
 ## depois de "from" e o numero do maior, depois de "to"
 
 ## carregar tabela com os tempos de retencao dos HIDROCARBONETOS HOMOLOGOS
@@ -25,17 +25,17 @@ CaminhoCalculo= "C:/Users/HP/Desktop/"
 
 NomeTabela= "calculoRetencao"
 
-NalcanosRet= read_excel("C:/Users/HP/Google Drive/R/gitAPIpubChem/AlcanosIR.xlsx") %>% 
+NalcanosRet= read_excel(".../gitAPIpubChem/AlcanosIR.xlsx") %>% 
   rename(TempoRet = Ret.Time) %>% 
   mutate(TempoRet = as.numeric(TempoRet)) %>% 
   mutate(Composto = CarbonoNumero) ## tabela com os indices de retencao dos picos dos Alcanos
 ## que servem de padrao para o calculo do Indice de Retencao
 
-CalcIndRet= read_excel("C:/Users/HP/Google Drive/R/gitAPIpubChem/OleosIR.xlsx",) 
+CalcIndRet= read_excel(".../gitAPIpubChem/OleosIR.xlsx",) 
 ## tabela com os indices de retencao dos compostos para os quais se deseja calcular os indices de retencao
 
 
-####### NAO MEXER DAQUI PARA BAIXO, SER¡ INDICADO QUANDO MEXER NOVAMENTE
+####### NAO MEXER DAQUI PARA BAIXO, SER√Å INDICADO QUANDO MEXER NOVAMENTE
 ####### 
 ####### 
 ####### 
@@ -60,7 +60,7 @@ CalculoIndiceRetencao= function(tabelaComCromatograma, colunaComTempoRetencao,
                 "IndiceRet")
   tabelaRI <- matrix(ncol=length(colnamesRI), nrow=nrow(Cromatograma)) ## criando uma matriz vazia para popular com
   ## os dados do calculo do indice de retencao, o proprio indice, informacoes da amostra
-  ## e do composto que o programa da shimadzu sugere que È
+  ## e do composto que o programa da shimadzu sugere que √©
   colnames(tabelaRI)= colnamesRI
   
   for (i in 1:nrow(Cromatograma)) {
@@ -117,7 +117,7 @@ TabelaCalculos= CalculoIndiceRetencao(CalcIndRet, "Ret.Time",
                                       NalcanosRet, "TempoRet", "Composto")
 
 ### substituir CalcIndRet com o nome da tabela com os COMPOSTOS DE INTERESSE (SEM ASPAS)
-### substituir "Ret.Time" pelo nome da coluna com os tempos de retenÁ„o dos compostos (COM ASPAS)
+### substituir "Ret.Time" pelo nome da coluna com os tempos de reten√ß√£o dos compostos (COM ASPAS)
 ### substituir NalcanosRet com o nome da tabela com a SERIE HOMOLOGA DE HIDROCARBONETOS (SEM ASPAS)
-### substituir TempoRet pelo nome da coluna com os tempos de retenÁ„o dos HIDROCARBONETOS DA S…RIE (COM ASPAS)
-### substituir TempoRet pelo nome da coluna com os n˙meros de carbonos da sÈrie homÛloga (COM ASPAS)
+### substituir TempoRet pelo nome da coluna com os tempos de reten√ß√£o dos HIDROCARBONETOS DA S√âRIE (COM ASPAS)
+### substituir TempoRet pelo nome da coluna com os n√∫meros de carbonos da s√©rie hom√≥loga (COM ASPAS)
