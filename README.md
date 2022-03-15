@@ -20,16 +20,11 @@ No repositório existe uma tabela de exemplo para ambas (AlcanosIR.xlsx e OleosI
 
 O script gera uma tabela mantendo as colunas que estavam na tabela de com os compostos de interesse, mais: 
 
-Retenção do composto de interesse (coluna **analito**),
-
-Retenção do alcano anterior (coluna **ret_n_anterior**), 
-
-Retenção do alcano posterior (coluna **ret_n_posterior**),
-
-Número de carbonos do alcano anterior (coluna **n_carb_anterior**), 
-
-Número de carbonos do alcano posterior (coluna **n_carb_posterior**) e 
-
-Índice de Retenção do composto (coluna **indice_ret**)
+Retenção do composto de interesse (coluna **analito**),  
+Retenção do alcano anterior (coluna **ret_n_anterior**),  
+Retenção do alcano posterior (coluna **ret_n_posterior**),  
+Número de carbonos do alcano anterior (coluna **n_carb_anterior**),  
+Número de carbonos do alcano posterior (coluna **n_carb_posterior**) e  
+Índice de Retenção do composto (coluna **indice_ret**)  
 
 A tabela será salva em .txt, no local e com o nome indicado no começo do script.
